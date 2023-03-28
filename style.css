@@ -72,6 +72,7 @@ body {
     url(images/bg-pattern-bottom-mobile.svg);
     background-position: top left, bottom right;
     background-repeat: no-repeat;
+    background-size: max(50%, 400px);
 }
 
 li {
@@ -97,7 +98,7 @@ h3 {
     gap: 2em;
     padding: 2em;
     margin: 4rem auto;
-}    
+}
 
 .testimonial__title {
     font-size: var(--fs-700);
@@ -111,7 +112,7 @@ h3 {
 }
 
 .testimonial__ratings li {
-    padding: .5em 1.5em;
+    padding: 1em 1.5em;
     margin-top: 1em;
     font-weight: bold;
     color: var(--clr-primary-400);
@@ -131,7 +132,8 @@ h3 {
 }
 
 .testimonials__container {
-    padding: 2em;
+    
+    padding: 2rem;
     margin-bottom: 1em;
     text-align: left;
     color: var(--clr-neutral-100);
@@ -152,5 +154,67 @@ h3 {
     color: var(--clr-accent-200);
 }
 
+@media (min-width: 50rem) {
+    body {
+        display: grid;
+        place-items: center;
+        font-size: var(--fs-500);
+        background-image: url(images/bg-pattern-top-desktop.svg),
+        url(images/bg-pattern-bottom-desktop.svg);
+    }
 
+    .testimonial__title {
+        font-size: 3rem;
+    }
+    .testimonial__overview {
+        font-size: 1rem;
+    }
 
+    .stars {
+        flex-direction: row;
+        align-items: center;
+        gap: 2em;
+    }
+
+    .testimonial {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1100px;
+    }
+
+    .testimonial__header {
+        grid-column: 1 / 2;
+        text-align: left;
+        margin-right: 5rem;
+    }
+
+    .testimonial__ratings {
+        grid-column: 2 / 3;
+        margin: auto;
+    }
+
+    .testimonial__ratings > li:nth-child(1) {
+        transform: translateX(0);
+    }
+    .testimonial__ratings > li:nth-child(2) {
+        transform: translateX(5%);
+    }
+    .testimonial__ratings > li:nth-child(3) {
+        transform: translateX(10%);
+    }
+
+    .testimonials {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2em;
+        grid-column: 1 / 3;
+        margin-top: 2rem;
+    }
+
+    .testimonials > div:nth-child(2) {
+        transform: translateY(10%);
+    }
+
+    .testimonials > div:nth-child(3) {
+        transform: translateY(20%);
+    }
+}
